@@ -1,4 +1,4 @@
-package com.daily.nickelapp;
+package com.app.thefairjournal;
 
 import org.junit.Test;
 

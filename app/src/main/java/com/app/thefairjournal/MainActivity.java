@@ -1,22 +1,16 @@
-package com.daily.nickelapp;
+package com.app.thefairjournal;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
@@ -24,23 +18,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.webkit.ConsoleMessage;
-import android.webkit.CookieManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.Toast;
 
 
@@ -200,38 +185,9 @@ public class MainActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myWebView.loadUrl(getResources().getString(R.string.url));
+                myWebView.loadUrl("https://thefairjournal.com");
             }
         });
-
-        camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myWebView.loadUrl("https://www.facebook.com/binsclub30/photos/");
-            }
-        });
-
-        terif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myWebView.loadUrl("https://www.binsclub.fr/tarifs/");
-            }
-        });
-
-        event.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myWebView.loadUrl("https://www.binsclub.fr/events/");
-            }
-        });
-
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myWebView.loadUrl("https://www.binsclub.fr/contact/");
-            }
-        });
-
 
 //        notifi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
@@ -281,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
         webSettingss.setAllowContentAccess(true);
         myWebView.getSettings().setAppCacheEnabled(true);
         myWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-        myWebView.loadUrl(getResources().getString(R.string.url));
+        myWebView.loadUrl("https://thefairjournal.com");
 
 
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -354,10 +310,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 } else if (url != null && url.startsWith("https://twitter.com/")) {
-                    view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-                    return true;
-
-                } else if (url != null && url.startsWith("https://plus.google.com/")) {
                     view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                     return true;
 

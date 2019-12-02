@@ -1,4 +1,4 @@
-package com.daily.nickelapp;
+package com.app.thefairjournal;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
